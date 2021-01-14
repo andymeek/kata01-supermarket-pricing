@@ -1,17 +1,18 @@
+import Container from '@material-ui/core/Container'
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '@material-ui/core'
 
 const AppContainer = styled.section`
   background-color: #f9f7fc;
+  height: 100vh;
 `
 
-function App() {
+function Supermarket() {
   return (
     <AppContainer>
-      <Container maxWidth="md">App stuff</Container>
+      <Container maxWidth="lg">Supermarket</Container>
     </AppContainer>
   )
 }
 
-export default App
+export default Supermarket
