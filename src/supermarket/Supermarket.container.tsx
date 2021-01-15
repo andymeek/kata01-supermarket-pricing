@@ -1,23 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container from '@material-ui/core/Container'
 
-import { useSupermarket } from './supoermarket.hooks'
+import { Header } from 'components/Header'
 import { Products } from 'products/Products'
+import { Basket } from 'basket/Basket'
+import { Receipt } from 'receipt/Receipt'
+import { useSupermarket } from './supermarket.hooks'
 
-const AppContainer = styled.section`
+const MainContainer = styled.section`
   background-color: #f9f7fc;
   height: 100vh;
 `
 
 const SupermarketContainer = () => {
-  const { products } = useSupermarket()
+  const { basketItems, products } = useSupermarket()
 
   return (
-    <AppContainer>
-      <Container maxWidth="lg">Supermarket</Container>
+    <MainContainer>
+      <Header />
       <Products products={products} />
-    </AppContainer>
+      <Basket basket={basketItems} />
+      <Receipt />
+    </MainContainer>
   )
 }
 
