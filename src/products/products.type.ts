@@ -6,4 +6,8 @@ type Product = {
   priceLabel: string
 }
 
-export type { Product }
+type PropTypes = {
+  products: Array<Product>
+}
+
+export type { Product, PropTypes }
