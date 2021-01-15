@@ -1,16 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import { Header } from 'components/Header'
+import { Header } from 'components/Header/Header'
+import { MainContainer } from 'components/MainContainer/MainContainer'
 import { Products } from 'products/Products'
 import { Basket } from 'basket/Basket'
 import { Receipt } from 'receipt/Receipt'
 import { useSupermarket } from './supermarket.hooks'
-
-const MainContainer = styled.section`
-  background-color: #f9f7fc;
-  height: 100vh;
-`
 
 const SupermarketContainer = () => {
   const { basketItems, products } = useSupermarket()
