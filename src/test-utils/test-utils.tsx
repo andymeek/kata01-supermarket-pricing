@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from '@material-ui/core'
 
-import theme from './theme'
+import theme from 'theme/theme'
 
 type Props = {
   children: React.ReactNode
