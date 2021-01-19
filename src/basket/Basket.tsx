@@ -7,14 +7,15 @@ import {
   Typography,
 } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-
 import { DeleteOutline } from '@material-ui/icons'
 import MaterialTable from 'material-table'
 
-import type { FC } from 'react'
-import type { PropTypes } from './Basket.types'
+import { isOfType } from 'common/typeguards'
 
-const useStyles = makeStyles((theme) => ({
+import type { FC } from 'react'
+import type { Basket as BasketType, PropTypes } from './Basket.types'
+
+const useStyles = makeStyles(() => ({
   container: {
     marginTop: '20px',
   },
@@ -24,17 +25,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Basket: FC<PropTypes> = ({ basket }) => {
+const Basket: FC<PropTypes> = ({ basket, removeItemFromBasket }) => {
   const classes = useStyles()
+  const components = {
+    Container: (props: unknown) => <Paper {...props} elevation={0} />,
+  }
 
   return (
-    <Container style={{ marginTop: '20px' }}>
+    <Container className={classes.container}>
       <Card elevation={0}>
         <CardContent style={{ padding: 0 }}>
           <MaterialTable
-            components={{
-              Container: (props: unknown) => <Paper {...props} elevation={0} />,
-            }}
+            components={components}
             isLoading={false}
             title={
               <Typography variant="h2" className={classes.title}>
@@ -46,19 +48,21 @@ const Basket: FC<PropTypes> = ({ basket }) => {
               {
                 icon: () => <DeleteOutline />,
                 tooltip: 'Delete Item(s)',
-                onClick: () => {},
-              },
-              {
-                icon: () => <DeleteOutline />,
-                tooltip: 'Delete All Item',
-                onClick: () => {},
-                isFreeAction: true,
+                onClick: (_, basketItem: any) => {
+                  if (isOfType<BasketType>(basketItem, 'name'))
+                    removeItemFromBasket(basketItem)
+                },
               },
             ]}
             columns={[
               { title: 'Product', field: 'name' },
               { title: 'Quantity', field: 'quantity', type: 'numeric' },
-              { title: 'Price', field: 'price', type: 'currency' },
+              {
+                title: 'Price',
+                field: 'basketPrice',
+                type: 'currency',
+                currencySetting: { currencyCode: 'gbp' },
+              },
             ]}
             options={{
               actionsColumnIndex: -1,
@@ -68,7 +72,7 @@ const Basket: FC<PropTypes> = ({ basket }) => {
             }}
             localization={{
               body: {
-                emptyDataSourceMessage: 'No item in your basket',
+                emptyDataSourceMessage: 'No items in your basket',
               },
               header: {
                 actions: '',

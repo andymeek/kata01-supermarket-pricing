@@ -7,15 +7,25 @@ import { Basket } from 'basket/Basket'
 import { Receipt } from 'receipt/Receipt'
 import { useSupermarket } from './supermarket.hooks'
 
+import { productsData } from 'products/products.data'
+
 const SupermarketContainer = () => {
-  const { basketItems, products } = useSupermarket()
+  const {
+    addItemToBasket,
+    basket,
+    products,
+    receipt,
+    removeItemFromBasket,
+  } = useSupermarket(productsData)
 
   return (
     <MainContainer>
       <Header />
-      <Products products={products} />
-      <Basket basket={basketItems} />
-      <Receipt />
+      <Products onAddItemToBasket={addItemToBasket} products={products} />
+      <Basket basket={basket} removeItemFromBasket={removeItemFromBasket} />
+      {receipt && receipt?.basket && receipt?.basket.length > 0 && (
+        <Receipt receipt={receipt} />
+      )}
     </MainContainer>
   )
 }

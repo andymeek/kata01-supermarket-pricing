@@ -1,7 +1,15 @@
-import type { Product } from 'products/products.type'
+import type { Product } from 'products/products.types'
 
-type PropTypes = {
-  basket: Array<Product>
+type Basket = Product & {
+  basketPrice: number
+  id?: string
+  priceWithSavings?: number
+  savings?: number
 }
 
-export type { PropTypes }
+type PropTypes = {
+  basket: Array<Basket>
+  removeItemFromBasket: (basketItem: Basket) => void
+}
+
+export type { Basket, PropTypes }
