@@ -1,4 +1,4 @@
-import type { Basket } from 'basket/Basket.types'
+import type { Basket } from 'basket/basket.type'
 
 type Receipt = {
   basket: Array<Basket>

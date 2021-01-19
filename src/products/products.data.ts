@@ -1,4 +1,4 @@
-import type { Product } from './products.types'
+import type { Product } from './products.type'
 
 const productsData: Array<Product> = [
   {

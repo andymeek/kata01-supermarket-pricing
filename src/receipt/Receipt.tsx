@@ -3,7 +3,7 @@ import { Card, CardContent, makeStyles, Typography } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 
 import type { FC } from 'react'
-import type { PropTypes } from './receipt.types'
+import type { PropTypes } from './receipt.type'
 import { formatPrice } from 'common/format-price'
 
 const useStyles = makeStyles(() => ({

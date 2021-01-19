@@ -13,7 +13,7 @@ import Container from '@material-ui/core/Container'
 import { formatPrice } from 'common/format-price'
 
 import type { FC } from 'react'
-import type { PropTypes } from './products.types'
+import type { PropTypes } from './products.type'
 
 const useStyles = makeStyles(() => ({
   container: {

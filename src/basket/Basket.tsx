@@ -13,7 +13,7 @@ import MaterialTable from 'material-table'
 import { isOfType } from 'common/typeguards'
 
 import type { FC } from 'react'
-import type { Basket as BasketType, PropTypes } from './Basket.types'
+import type { Basket as BasketType, PropTypes } from './basket.type'
 
 const useStyles = makeStyles(() => ({
   container: {

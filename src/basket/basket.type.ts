@@ -1,4 +1,4 @@
-import type { Product } from 'products/products.types'
+import type { Product } from 'products/products.type'
 
 type Basket = Product & {
   basketPrice: number
