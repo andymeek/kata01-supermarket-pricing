@@ -75,6 +75,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
+      "!src/index.{ts,tsx}",
       "!<rootDir>/node_modules/",
       "!src/react-app-env.d.ts",
       "!src/global.d.ts"
