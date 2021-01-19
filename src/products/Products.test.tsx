@@ -1,24 +1,39 @@
 import React from 'react'
-import { render, screen } from 'test-utils/test-utils'
+import { render, screen, userEvent } from 'test-utils/test-utils'
 import { Products } from './Products'
 import { productsData } from './products.data'
 
-describe('<Products />', () => {
-  describe('when provided with product data', () => {
-    it('should display the product list', () => {
-      render(<Products products={productsData} />)
+const products = productsData.slice(0, 1)
 
-      expect(screen.getByText('Face masks')).toBeInTheDocument()
-      expect(screen.getByText('(each)')).toBeInTheDocument()
-      expect(screen.getByText('£2.50')).toBeInTheDocument()
+describe('with product data', () => {
+  it('should display the products', () => {
+    render(<Products onAddItemToBasket={() => jest.fn()} products={products} />)
 
-      expect(screen.getByText('Toilet paper')).toBeInTheDocument()
-      expect(screen.getByText('(per roll)')).toBeInTheDocument()
-      expect(screen.getByText('£0.65')).toBeInTheDocument()
+    expect(screen.getByText('(each)')).toBeInTheDocument()
+    expect(screen.getByText('£2.50')).toBeInTheDocument()
+    expect(screen.getByText('£2.50')).toBeInTheDocument()
+    expect(screen.getByText('Add item')).toBeInTheDocument()
+  })
 
-      expect(screen.getByText('Hand sanitizer')).toBeInTheDocument()
-      expect(screen.getByText('(per litre)')).toBeInTheDocument()
-      expect(screen.getByText('£19.99')).toBeInTheDocument()
-    })
+  it('receives the correct basket item when button is clicked', () => {
+    const mockOnAddItemToBasket = jest.fn()
+
+    render(
+      <Products onAddItemToBasket={mockOnAddItemToBasket} products={products} />
+    )
+    userEvent.click(screen.getAllByText('Add item')[0])
+    expect(mockOnAddItemToBasket).toHaveBeenCalledWith('Face masks')
+    expect(mockOnAddItemToBasket).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('with no product data', () => {
+  it('should not display the products', () => {
+    render(<Products onAddItemToBasket={() => jest.fn()} products={[]} />)
+
+    expect(screen.queryByText('Face masks')).not.toBeInTheDocument()
+    expect(screen.queryByText('(each)')).not.toBeInTheDocument()
+    expect(screen.queryByText('£2.50')).not.toBeInTheDocument()
+    expect(screen.queryByText('Add item')).not.toBeInTheDocument()
   })
 })

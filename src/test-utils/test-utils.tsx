@@ -1,5 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+
 import { ThemeProvider } from '@material-ui/core'
 
 import theme from 'theme/theme'
@@ -20,3 +22,4 @@ export * from '@testing-library/react'
 
 // override render method
 export { customRender as render }
+export { userEvent }
