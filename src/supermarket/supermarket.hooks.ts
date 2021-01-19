@@ -97,6 +97,7 @@ const useSupermarket = (products: Array<Product>) => {
   const removeItemFromBasket = (basketItem: Basket): void => {
     setBasket(basket.filter((item) => item.name !== basketItem.name))
   }
+
   useEffect(() => {
     const basketData = getReceipt(basket)
     if (!basketData) return
