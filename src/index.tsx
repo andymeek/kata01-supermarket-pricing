@@ -8,10 +8,8 @@ import SupermarketContainer from 'supermarket/Supermarket.container'
 import './index.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <SupermarketContainer />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <SupermarketContainer />
+  </ThemeProvider>,
   document.getElementById('root')
 )
