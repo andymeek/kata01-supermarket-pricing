@@ -13,7 +13,7 @@ import Container from '@material-ui/core/Container'
 import { formatPrice } from 'common/format-price'
 
 import type { FC } from 'react'
-import type { PropTypes } from './products.type'
+import type { PropTypes } from './products.types'
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -31,7 +31,7 @@ const ProductContainer = styled.div`
   grid-template-columns: 400px 1fr;
 `
 
-const Products: FC<PropTypes> = ({ onAddItemToBasket, products = [] }) => {
+const Products: FC<PropTypes> = ({ onAddItemToBasket, products }) => {
   const classes = useStyles()
 
   return (

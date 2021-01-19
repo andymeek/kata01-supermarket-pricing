@@ -9,8 +9,8 @@ describe('with product data', () => {
   it('should display the products', () => {
     render(<Products onAddItemToBasket={() => jest.fn()} products={products} />)
 
+    expect(screen.getByText('Face masks')).toBeInTheDocument()
     expect(screen.getByText('(each)')).toBeInTheDocument()
-    expect(screen.getByText('£2.50')).toBeInTheDocument()
     expect(screen.getByText('£2.50')).toBeInTheDocument()
     expect(screen.getByText('Add item')).toBeInTheDocument()
   })
