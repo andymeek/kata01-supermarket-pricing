@@ -22,7 +22,6 @@ const useSupermarket = (products: Array<Product>) => {
     setBasket(basketData)
 
     const receiptData = getReceipt(basketData)
-    if (!receiptData) return
 
     setReceipt(receiptData)
   }
