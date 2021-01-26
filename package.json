@@ -5,8 +5,8 @@
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/**.{ts,tsx}",
-    "lint:fix": "npm run lint --fix",
+    "lint": "eslint \"{src,test}/**/*.{ts,tsx}\"",
+    "lint:fix": "npm run lint -- --fix",
     "start": "react-scripts start",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test --watchAll=true"
@@ -76,7 +76,7 @@
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!src/index.{ts,tsx}",
-      "!src/**/*.types.ts",
+      "!src/**/*.type.ts",
       "!<rootDir>/node_modules/",
       "!src/react-app-env.d.ts",
       "!src/global.d.ts"
