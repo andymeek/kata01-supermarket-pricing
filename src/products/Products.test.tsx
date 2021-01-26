@@ -7,7 +7,11 @@ const products = productsData.slice(0, 1)
 
 describe('with product data', () => {
   it('should display the products', () => {
-    render(<Products onAddItemToBasket={() => jest.fn()} products={products} />)
+    const mockOnAddItemToBasket = jest.fn()
+
+    render(
+      <Products onAddItemToBasket={mockOnAddItemToBasket} products={products} />
+    )
 
     expect(screen.getByText('Face masks')).toBeInTheDocument()
     expect(screen.getByText('(each)')).toBeInTheDocument()
@@ -29,7 +33,9 @@ describe('with product data', () => {
 
 describe('with no product data', () => {
   it('should not display the products', () => {
-    render(<Products onAddItemToBasket={() => jest.fn()} products={[]} />)
+    const mockOnAddItemToBasket = jest.fn()
+
+    render(<Products onAddItemToBasket={mockOnAddItemToBasket} products={[]} />)
 
     expect(screen.queryByText('Face masks')).not.toBeInTheDocument()
     expect(screen.queryByText('(each)')).not.toBeInTheDocument()
