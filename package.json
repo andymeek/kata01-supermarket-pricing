@@ -11,9 +11,6 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test --watchAll=true"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
