@@ -4,8 +4,6 @@ import type { Basket } from 'basket/basket.type'
 import type { Receipt } from 'receipt/receipt.type'
 
 const getReceipt = (basket: Array<Basket>): Receipt => {
-  let totalSavings = 0
-
   const receipt = {
     basket: basket.map((item) => {
       const priceWithSavings =
@@ -20,8 +18,6 @@ const getReceipt = (basket: Array<Basket>): Receipt => {
 
       const savings = priceWithSavings ? priceWithSavings - item.basketPrice : 0
 
-      totalSavings += savings
-
       return {
         ...item,
         priceWithSavings,
@@ -29,13 +25,18 @@ const getReceipt = (basket: Array<Basket>): Receipt => {
       }
     }),
     subTotal: basket.reduce((sum, item) => sum + item.basketPrice, 0),
-    totalSavings,
     totalToPay: 0,
   }
 
+  const totalSavings = receipt.basket.reduce(
+    (sum, item) => sum + item.savings,
+    0
+  )
+
   return {
     ...receipt,
-    totalToPay: receipt.subTotal - -receipt.totalSavings,
+    totalToPay: receipt.subTotal - -totalSavings,
+    totalSavings,
   }
 }
 
