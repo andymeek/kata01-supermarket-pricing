@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { getBasket } from 'basket/get-backet'
+import { getBasket } from 'basket/get-basket'
 import { getProduct } from 'products/get-product'
 import { getReceipt } from 'receipt/get-receipt'
 

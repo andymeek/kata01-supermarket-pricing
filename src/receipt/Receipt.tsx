@@ -34,7 +34,7 @@ const Receipt: FC<PropTypes> = ({ receipt }) => {
                   {formatPrice(product.price)}
                 </strong>
                 <br />
-                {product.savings! < 0 && (
+                {product.savings && product.savings < 0 && (
                   <>
                     <span>Promo Savings: {formatPrice(product.savings!)}</span>{' '}
                     - <small>{product.dealLabel}</small>
