@@ -48,7 +48,7 @@ const Basket: FC<PropTypes> = ({ basket, removeItemFromBasket }) => {
               {
                 icon: () => <DeleteOutline />,
                 tooltip: 'Delete Item(s)',
-                onClick: (_, basketItem: any) => {
+                onClick: (_, basketItem) => {
                   if (isOfType<BasketType>(basketItem, 'name'))
                     removeItemFromBasket(basketItem)
                 },
