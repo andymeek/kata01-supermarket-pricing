@@ -1,3 +1,13 @@
+# Kata01: Supermarket Pricing
+
+This kata is my React & TypeScript based solution: http://codekata.com/kata/kata01-supermarket-pricing/
+
+I have modified the products and the discounts from the originals - the products are more relevant to today's current affairs, and the pricing is in GBP - but the concept is the same.
+
+Enjoy!
+
+---------------------------------------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

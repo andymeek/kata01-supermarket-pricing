@@ -17,7 +17,7 @@ const Header: FC = () => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h1" className={classes.title}>
-          Supermarket (QMetric JavaScript Exercise)
+          Kata01: Supermarket Pricing
         </Typography>
       </Toolbar>
     </AppBar>
