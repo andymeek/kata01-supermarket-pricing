@@ -2,7 +2,7 @@ import type { Product } from 'products/products.type'
 
 type Basket = Product & {
   basketPrice: number
-  id?: string
+  dealLabel?: string
   priceWithSavings?: number
   savings?: number
 }

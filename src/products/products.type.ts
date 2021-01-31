@@ -1,7 +1,4 @@
 type Product = {
-  readonly dealLabel?: string
-  readonly groupPrice?: number
-  readonly groupThreshold?: number
   readonly name: string
   readonly price: number
   readonly priceLabel: string
@@ -13,4 +10,13 @@ type PropTypes = {
   products: Array<Product>
 }
 
-export type { Product, PropTypes }
+type Discount = Record<
+  string,
+  {
+    readonly dealLabel: string
+    readonly groupPrice: number
+    readonly groupThreshold: number
+  }
+>
+
+export type { Discount, Product, PropTypes }

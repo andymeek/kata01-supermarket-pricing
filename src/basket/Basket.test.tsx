@@ -2,10 +2,10 @@ import React from 'react'
 import { render, screen, userEvent, waitFor } from 'test-utils/test-utils'
 
 import { Basket } from 'basket/Basket'
-import { productsData } from 'products/products.data'
+import { products } from 'products/products.data'
 
 describe('with basket item', () => {
-  const basket = productsData
+  const basket = products
     .slice(0, 1)
     .map((b) => ({ ...b, basketPrice: b.price }))
 
@@ -25,9 +25,6 @@ describe('with basket item', () => {
     userEvent.click(screen.getByTitle('Delete Item(s)'))
     expect(mockOnAddItemToBasket).toHaveBeenCalledWith({
       basketPrice: 2.5,
-      dealLabel: 'Two Face Masks for £4',
-      groupPrice: 4,
-      groupThreshold: 2,
       name: 'Face masks',
       price: 2.5,
       priceLabel: 'each',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, userEvent } from 'test-utils/test-utils'
 import { Products } from './Products'
-import { productsData } from './products.data'
+import { products as productsData } from './products.data'
 
 const products = productsData.slice(0, 1)
 

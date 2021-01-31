@@ -1,19 +1,13 @@
-import type { Product } from './products.type'
+import type { Discount, Product } from './products.type'
 
-const productsData: Array<Product> = [
+const products: Array<Product> = [
   {
-    dealLabel: 'Two Face Masks for £4',
-    groupPrice: 4.0,
-    groupThreshold: 2,
     name: 'Face masks',
     price: 2.5,
     priceLabel: 'each',
     quantity: 1,
   },
   {
-    dealLabel: '6 rolls of toilet paper for the price of 5',
-    groupPrice: 3.25,
-    groupThreshold: 6,
     name: 'Toilet paper',
     price: 0.65,
     priceLabel: 'per roll',
@@ -27,4 +21,17 @@ const productsData: Array<Product> = [
   },
 ]
 
-export { productsData }
+const discounts: Discount = {
+  'Face masks': {
+    dealLabel: 'Two Face Masks for £4',
+    groupPrice: 4.0,
+    groupThreshold: 2,
+  },
+  'Toilet paper': {
+    dealLabel: '6 rolls of toilet paper for the price of 5',
+    groupPrice: 3.25,
+    groupThreshold: 6,
+  },
+}
+
+export { products, discounts }

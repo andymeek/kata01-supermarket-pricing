@@ -3,14 +3,15 @@ import { getPrice } from 'common/get-price'
 import type { Basket } from 'basket/basket.type'
 import type { Receipt } from 'receipt/receipt.type'
 import { Product } from 'products/products.type'
+import { discounts } from 'products/products.data'
 
 const getPriceWithSavings = (item: Product): number | undefined => {
-  if (item.groupPrice && item.groupThreshold)
+  if (discounts[item.name])
     return getPrice(
       item.quantity,
-      item.groupThreshold,
+      discounts[item.name].groupThreshold,
       item.price,
-      item.groupPrice
+      discounts[item.name].groupPrice
     )
 }
 
@@ -22,6 +23,7 @@ const getReceipt = (basket: Array<Basket>): Receipt => {
 
       return {
         ...item,
+        ...(priceWithSavings && { dealLabel: discounts[item.name].dealLabel }),
         priceWithSavings,
         savings,
       }

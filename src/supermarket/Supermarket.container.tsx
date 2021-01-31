@@ -7,7 +7,7 @@ import { Basket } from 'basket/Basket'
 import { Receipt } from 'receipt/Receipt'
 import { useSupermarket } from './supermarket.hooks'
 
-import { productsData } from 'products/products.data'
+import { products as productsData } from 'products/products.data'
 
 const SupermarketContainer = () => {
   const {
